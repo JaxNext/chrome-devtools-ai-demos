@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrome DevTools MCP Server</title>
+    
     <style>
         * {
             margin: 0;
@@ -121,30 +122,62 @@
     <div class="container">
         <div class="logos">
             <!-- Chrome DevTools Logo -->
-            <img src="https://cdn.jsdelivr.net/npm/@browser-logos/chrome-devtools@1.0.2/chrome-devtools.svg" 
-                 alt="Chrome DevTools Logo" 
-                 class="logo"
-                 onerror="this.src='https://www.svgrepo.com/show/373497/chrome-devtools.svg'">
+            <img src="" class="logo devtools">
             
             <span class="plus">+</span>
             
             <!-- MCP Logo -->
-            <img src="https://avatars.githubusercontent.com/u/182288589?s=200&v=4" 
-                 alt="Model Context Protocol Logo" 
-                 class="logo">
+            <img src="" class="logo mcp">
         </div>
         
-        <h1>Chrome DevTools MCP Server</h1>
+        <h1></h1>
         
-        <p class="description">
-            A Model Context Protocol server that enables AI assistants to control and inspect web browsers through the Chrome DevTools Protocol.
-        </p>
+        <p class="description"></p>
         
-        <div class="links">
-            <a href="https://github.com/ChromeDevTools/chrome-devtools-mcp" class="link-item" target="_blank">📖 Documentation</a>
-            <a href="https://github.com/modelcontextprotocol/servers" class="link-item" target="_blank">🔗 MCP Servers</a>
-            <a href="https://developer.chrome.com/docs/devtools" class="link-item" target="_blank">🛠️ Chrome DevTools Docs</a>
-        </div>
+        <div class="links"></div>
     </div>
+
+    <script>
+        const data = {
+            'images': [
+                'https://cdn.jsdelivr.net/npm/@browser-logos/chrome-devtools@1.0.2/chrome-devtools.svg',
+                'https://avatars.githubusercontent.com/u/182288589?s=200&v=4'
+            ],
+            'title': 'Chrome DevTools MCP Server',
+            'description': 'A Model Context Protocol server that enables AI assistants to control and inspect web browsers through the Chrome DevTools Protocol.',
+            'links': [
+                {
+                'text': '📖 Documentation',
+                'href': 'https://github.com/ChromeDevTools/chrome-devtools-mcp'
+                },
+                {
+                'text': '🔗 MCP Servers',
+                'href': 'https://github.com/modelcontextprotocol/servers'
+                },
+                {
+                'text': '🛠️ Chrome DevTools Docs',
+                'href': 'https://developer.chrome.com/docs/devtools'
+                }
+            ]
+        }
+
+        function renderPage() {
+            const { title, description, links, images } = data;
+            const [devtoolsLogo, mcpLogo] = images;
+
+            document.querySelector('.logo.devtools').src = devtoolsLogo;
+            document.querySelector('.logo.mcp').src = mcpLogo;
+            document.querySelector('h1').textContent = title;
+            document.querySelector('.description').textContent = description;
+            document.querySelector('.links').innerHTML = links.map(link => `<a href="${link.href}" class="link-item" target="_blank">${link.text}</a>`).join('');
+        }
+    </script>
+
+    <script>
+        const config = invalidObject.property.value;
+        console.log(config);
+
+        renderPage();
+    </script>
 </body>
 </html>
